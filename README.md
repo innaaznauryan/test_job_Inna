@@ -12,7 +12,7 @@
 
 Дале тебе надо с помощью `docker compose` поднять сервер, накотором уже есть работающий `BackEnd`
 <details>
-    <summary>Как это сдеать</summary> 
+<summary>Как это сдеать</summary> 
 
 ```bash
 docker compose up --build
@@ -22,7 +22,7 @@ docker compose up --build
 Сделав это у тебя подниметься сервер с приложением на `php` и базой данных `MySql`. Сервер слушает на `8180` порту, проверь, что все работает.
 
 <details>
-    <summary>Как это сдеать</summary> 
+<summary>Как это сдеать</summary> 
 
 ```bash
 curl localhost:8180/
@@ -31,14 +31,14 @@ curl localhost:8180/
 </details>
 
 <details>
-    <summary>Ответ сервера</summary> 
+<summary>Ответ сервера</summary> 
 
 ```json
 {"total":3,"data":[{"id":"1","fname":"Tom","lname":"Hanks","phone":"+1123456789","bday":"1956-07-09"},{"id":"2","fname":"Will","lname":"Smith","phone":"+1987654321","bday":"1968-09-25"},{"id":"3","fname":"Bruce","lname":"Willis","phone":"+1147258396","bday":"1955-03-19"}]}
 ```
 </details>
 
-На этом подготовка закончена, изучи [API сервера][## API] можно приступать к выполнению [задания][## Задание]
+На этом подготовка закончена, изучи [API сервера](https://github.com/diliapi/test_job/tree/frontend#api) можно приступать к выполнению [задания][https://github.com/diliapi/test_job/tree/frontend#задание]
 
 
 ## API
@@ -57,16 +57,16 @@ params:
 response
 ```json
 {
-    "total": int
-    "data": [
-        {
-            "id": int,
-            "fname": string,
-            "lname": string,
-            "phone": string,
-            "bday": string
-        }
-    ]
+"total": int
+"data": [
+{
+"id": int,
+"fname": string,
+"lname": string,
+"phone": string,
+"bday": string
+}
+]
 }
 ```
 
@@ -77,18 +77,18 @@ paht `/`
 params:
 ```json
 {
-	"fname": string,
-	"lname": string,
-	"phone": string,
-	"bday": string
+"fname": string,
+"lname": string,
+"phone": string,
+"bday": string
 }
 ```
 
 response
 ```json
 {
-    "success": bool,
-    "message": string|nil
+"success": bool,
+"message": string|nil
 }
 ```
 ### PUT
@@ -98,19 +98,19 @@ paht `/`
 params:
 ```json
 {
-	"id": int,
-	"fname": string|nil,
-	"lname": string|nil,
-	"phone": string|nil,
-	"bday": string|nil
+"id": int,
+"fname": string|nil,
+"lname": string|nil,
+"phone": string|nil,
+"bday": string|nil
 }
 ```
 
 response
 ```json
 {
-    "success": bool,
-    "message": string|nil
+"success": bool,
+"message": string|nil
 }
 ```
 
@@ -121,15 +121,15 @@ paht `/`
 params:
 ```json
 {
-	"id": int
+"id": int
 }
 ```
 
 response
 ```json
 {
-    "success": bool,
-    "message": string|nil
+"success": bool,
+"message": string|nil
 }
 ```
 ## Задание
