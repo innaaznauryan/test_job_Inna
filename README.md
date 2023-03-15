@@ -38,7 +38,7 @@ curl localhost:8180/
 ```
 </details>
 
-На этом подготовка закончена, изучи [API сервера](https://github.com/diliapi/test_job/tree/frontend#api) можно приступать к выполнению [задания][https://github.com/diliapi/test_job/tree/frontend#задание]
+На этом подготовка закончена, изучи [API сервера](https://github.com/diliapi/test_job/tree/frontend#api) можно приступать к выполнению [задания](https://github.com/diliapi/test_job/tree/frontend#задание)
 
 
 ## API
