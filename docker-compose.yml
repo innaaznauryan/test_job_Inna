@@ -26,16 +26,12 @@ services:
       args:
         PHP_VERSION: 8.2.3
         PHP_OPTIONS: --with-curl=/usr/lib --with-apxs2=/usr/bin/apxs --with-mysql=mysqlnd --with-pdo-mysql=mysqlnd --with-mysqli --with-zlib=shared --with-gd
-        # PHP_OPTIONS: --enable-mbstring --with-curl=/usr/lib --with-apxs2=/usr/bin/apxs --with-mysql=mysqlnd --with-pdo-mysql=mysqlnd --with-mysqli --with-zlib=shared --with-gd
     image: httpd:8.2.3-dev
     command: 
-      # - /bin/sh
-      # - -c
       - |
         httpd
         php /tmp/migrate.php
         tail -f /var/log/apache2/access.log /var/log/apache2/error.log
-    # entrypoint: httpd && php /tmp/migrate.php && tail -f /var/log/apache2/access.log /var/log/apache2/error.log
     restart: unless-stopped
     environment:
       - MYSQL_SERVER=db
@@ -53,4 +49,18 @@ services:
       default:
         aliases:
           - front.test
+    depends_on:
+      - db
 
+  client:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    image: foront-test-client:latest
+    entrypoint: npm install && node app.js
+    ports: 
+      - 3000:80
+    depends_on: 
+      - front.test
+    volumes:
+      - ./client:/app

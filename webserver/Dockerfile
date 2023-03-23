@@ -28,7 +28,6 @@ RUN apk add --update --no-cache \
 	libjpeg \
     apache2-utils &&\
     update-ca-certificates
-	# libonig-dev
 
 RUN curl https://www.php.net/distributions/php-8.2.3.tar.gz -o /tmp/php-${PHP_VERSION}.tar.gz \
 	&& cd /tmp \

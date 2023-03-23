@@ -57,16 +57,16 @@ params:
 response
 ```json
 {
-"total": int
-"data": [
-{
-"id": int,
-"fname": string,
-"lname": string,
-"phone": string,
-"bday": string
-}
-]
+    "total": int
+    "data": [
+        {
+            "id": int,
+            "fname": string,
+            "lname": string,
+            "phone": string,
+            "bday": string
+        }
+	]
 }
 ```
 
@@ -77,18 +77,18 @@ paht `/`
 params:
 ```json
 {
-"fname": string,
-"lname": string,
-"phone": string,
-"bday": string
+    "fname": string,
+    "lname": string,
+    "phone": string,
+    "bday": string
 }
 ```
 
 response
 ```json
 {
-"success": bool,
-"message": string|nil
+    "success": bool,
+    "message": string|nil
 }
 ```
 ### PUT
@@ -98,19 +98,19 @@ paht `/`
 params:
 ```json
 {
-"id": int,
-"fname": string|nil,
-"lname": string|nil,
-"phone": string|nil,
-"bday": string|nil
+    "id": int,
+    "fname": string|nil,
+    "lname": string|nil,
+    "phone": string|nil,
+    "bday": string|nil
 }
 ```
 
 response
 ```json
 {
-"success": bool,
-"message": string|nil
+    "success": bool,
+    "message": string|nil
 }
 ```
 
@@ -121,15 +121,15 @@ paht `/`
 params:
 ```json
 {
-"id": int
+    "id": int
 }
 ```
 
 response
 ```json
 {
-"success": bool,
-"message": string|nil
+    "success": bool,
+    "message": string|nil
 }
 ```
 ## Задание
