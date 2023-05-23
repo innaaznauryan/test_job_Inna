@@ -10,6 +10,7 @@
 - [DataBase Developer](https://github.com/diliapi/test_job/tree/database)
 - [DevOps Engineer](https://github.com/diliapi/test_job/tree/devops)
 - [QA Engineer](https://github.com/diliapi/test_job/tree/qa)
+- [BackEnd Junior](https://github.com/diliapi/test_job/tree/backend)
 
 Ты можещь перейти по ссылкам и выполнить задания.
 Это полезно будет и тебе, что бы проверить своиз знания и навыки.
