@@ -5,8 +5,8 @@
 Этот репозиторий содержит тестовые задания для сосикателей на разные должности.
 Репозиторий разделен на ветки в них ты можешь найти сами тестовые задания исходя из своих возможностей, предпочтений и целей.
 
-- [ForontEnd Junior Developer](https://github.com/diliapi/test_job/tree/forntend)
-- [ForontEnd Middle Developer](https://github.com/diliapi/test_job/tree/forntend)
+- [FrontEnd Junior Developer](https://github.com/diliapi/test_job/tree/frontend)
+- [FrontEnd Middle Developer](https://github.com/diliapi/test_job/tree/frontend-middle)
 - [DataBase Developer](https://github.com/diliapi/test_job/tree/database)
 - [DevOps Engineer](https://github.com/diliapi/test_job/tree/devops)
 - [QA Engineer](https://github.com/diliapi/test_job/tree/qa)
