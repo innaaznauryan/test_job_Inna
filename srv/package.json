@@ -1,0 +1,25 @@
+{
+	"name": "srv",
+	"version": "1.0.0",
+	"description": "",
+	"main": "src/app.js",
+	"type": "module",
+	"scripts": {
+		"start": "node src/app.js",
+		"serve": "concurrently \"npx --watch\" \"nodemon -L\"",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": {
+		"name": "Ivan Timokhov",
+		"email": "Timokhovim@gmail.com"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"express": "^4.18.2",
+		"mongodb": "^5.6.0"
+	},
+	"devDependencies": {
+		"concurrently": "^8.2.0",
+		"nodemon": "^2.0.22"
+	}
+}
