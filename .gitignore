@@ -1,8 +1,10 @@
 db/*
 !db/.gitignore
-httpd/logs/*
-!httpd/logs/.gitignore
 client/*
 !Dockerfile
 !.dockerignore
-php/
+todo
+node_modules
+package-lock.json
+todo
+.vscode

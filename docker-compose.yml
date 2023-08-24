@@ -1,66 +1,41 @@
 version: '3'
 
 services:
-
-  db:
+  server:
     build:
-      context: ./dbserver
-      dockerfile: ./Dockerfile
-    image: mysql:8.0.32
-    command: --default-authentication-plugin=mysql_native_password
-    restart: unless-stopped
+      context: srv
+      dockerfile: Dockerfile
+    image: test_job_server:0.0
+    restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: example
-      MYSQL_DATABASE: test
-      MYSQL_USER: tom
-      MYSQL_PASSWORD: g!veme5
-    volumes:
-      - ./db:/var/lib/mysql
-      - ./dbserver/mysql.conf.d:/etc/mysql/mysql.conf.d
-
-  front.test:
-    build:
-      context: ./webserver
-      dockerfile: ./Dockerfile
-      target: dev
-      args:
-        PHP_VERSION: 8.2.3
-        PHP_OPTIONS: --with-curl=/usr/lib --with-apxs2=/usr/bin/apxs --with-mysql=mysqlnd --with-pdo-mysql=mysqlnd --with-mysqli --with-zlib=shared --with-gd
-    image: httpd:8.2.3-dev
-    command: 
-      - |
-        httpd
-        php /tmp/migrate.php
-        tail -f /var/log/apache2/access.log /var/log/apache2/error.log
-    restart: unless-stopped
-    environment:
-      - MYSQL_SERVER=db
-      - MYSQL_USER=tom
-      - MYSQL_PASSWORD=g!veme5
-      - MYSQL_DATABASE=test
+      - MONGO_USER=$MONGO_USER
+      - MONGO_PASSWORD=$MONGO_PASSWORD
+      - MONGO_DB_NAME=$MONGO_DB_NAME
+      - MONGO_COLLECTION_NAME=$MONGO_COLLECTION_NAME
     ports:
-      - 8180:80
-    volumes:
-      - ./httpd/htdocs:/htdocs
-      - ./httpd/logs:/htlogs
-      - ./httpd/cgi:/htcgi
-      - ./webserver/migrate:/tmp
-    networks:
-      default:
-        aliases:
-          - front.test
-    depends_on:
-      - db
+      - 8180:8080
 
-  client:
-    build:
-      context: ./client
-      dockerfile: ./Dockerfile
-    image: foront-test-client:latest
-    entrypoint: npm install && node app.js
-    ports: 
-      - 3000:80
-    depends_on: 
-      - front.test
+  mongodb:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: $MONGO_USER
+      MONGODB_INITDB_ROOT_PASSWORD: $MONGO_PASSWORD
     volumes:
-      - ./client:/app
+      - type: bind
+        source: ./db
+        target: /data/db
+
+  mongodbUI:
+    image: mongo-express:1.0.0-alpha.4
+    ports:
+      - 8081:8081
+    restart: always
+    environment:
+      ME_CONFIG_OPTIONS_EDITORTHEME: default
+      ME_CONFIG_MONGODB_SERVER: mongodb
+      ME_CONFIG_BASICAUTH_USERNAME: $MONGOUI_USER
+      ME_CONFIG_BASICAUTH_PASSWORD: $MONGOUI_PASSWORD
+      ME_CONFIG_MONGODB_ADMINUSERNAME: $MONGO_USER
+      ME_CONFIG_MONGODB_ADMINPASSWORD: $MONGO_PASSWORD
+    depends_on:
+      - mongodb
