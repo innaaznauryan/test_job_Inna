@@ -1,6 +1,6 @@
 db/*
 !db/.gitignore
-client/*
+# client/*
 !Dockerfile
 !.dockerignore
 todo
