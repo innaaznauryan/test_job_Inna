@@ -5,6 +5,13 @@ import { EBadMethod, EBadRequest, ENotFound } from './error.js'
 const router = express.Router()
 router.use(express.json())
 
+router.use((req, res, next) => {
+	res.setHeader('Access-Control-Allow-Origin', '*')
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE');
+	res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+	next();
+	});
+
 function sendOk(res) {
 	res.send({success: true})
 }
