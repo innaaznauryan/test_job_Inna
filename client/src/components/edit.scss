@@ -15,9 +15,10 @@
         width: min(80%, 400px);
         padding: 10px;
     }
-    button {
+    .edit {
         margin-inline: 10px;
         padding: 10px;
+        background-color: darksalmon;
         &:hover {
             cursor: pointer;
         }

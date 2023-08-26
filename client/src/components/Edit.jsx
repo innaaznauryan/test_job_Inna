@@ -2,7 +2,7 @@ import {useState} from 'react'
 import "./edit.scss"
 
 const Edit = (props) => {
-    const {data, id, exit, handleRenew} = props
+    const {data, id, exit, editPerson} = props
 
     const [editInfo, setEditInfo] = useState(() => {
         const element = data.find(elem => elem.id == id)
@@ -28,9 +28,9 @@ const Edit = (props) => {
         <input onChange={handleEditChange} name="phone" type="text" value={editInfo.phone}/>
         <input onChange={handleEditChange} name="bday" type="text" value={editInfo.bday}/>
         <div className="btns">
-            <button onClick={() => exit({mode: false, id: null})}>Cancel</button>
-            <button onClick={() => {
-                handleRenew(id, editInfo.fname, editInfo.lname, editInfo.phone, editInfo.bday)
+            <button className='edit' onClick={() => exit({mode: false, id: null})}>Cancel</button>
+            <button className='edit' onClick={() => {
+                editPerson(id, editInfo.fname, editInfo.lname, editInfo.phone, editInfo.bday)
                 exit({mode: false, id: null})
             }}>Save</button>
         </div>
