@@ -1,0 +1,27 @@
+.pagination {
+    text-align: center;
+    height: 20px;
+    svg {
+        color: cadetblue;
+        transition: .5s;
+        position: absolute;
+        z-index: 1;
+        &:hover{
+            color: darksalmon;
+            cursor: pointer;
+        }
+    }
+    .right {
+        right: 44%;
+    }
+    .left {
+        left: 44%;
+    }
+    span {
+        color: cadetblue;
+        font-weight: 600;
+        position: absolute;
+        right: 0;
+        left: 0;
+    }
+}
