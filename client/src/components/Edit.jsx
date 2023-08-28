@@ -5,12 +5,12 @@ const Edit = (props) => {
     const {data, id, exit, editPerson} = props
 
     const [editInfo, setEditInfo] = useState(() => {
-        const element = data.find(elem => elem.id == id)
+        const {fname, lname, phone, bday} = data.find(elem => elem.id == id)
         return {
-            fname: element.fname,
-            lname: element.lname,
-            phone: element.phone, 
-            bday: element.bday
+            fname: fname[0].toUpperCase() + fname.slice(1).toLowerCase(),
+            lname: lname[0].toUpperCase() + lname.slice(1).toLowerCase(),
+            phone: phone, 
+            bday: bday
         }
     })
     const [isLoaded, setIsLoaded] = useState(false)
@@ -28,7 +28,7 @@ const Edit = (props) => {
     <>
     <div className="veil"></div>
     <div className='modal'>
-        <h1>Edit</h1>
+        <h2>Edit</h2>
         <input className={isLoaded ? "animated" : ""} onChange={handleEditChange} name="fname" type="text" value={editInfo.fname}/>
         <input className={isLoaded ? "animated" : ""} onChange={handleEditChange} name="lname" type="text" value={editInfo.lname}/>
         <input className={isLoaded ? "animated" : ""} onChange={handleEditChange} name="phone" type="text" value={editInfo.phone}/>

@@ -55,7 +55,7 @@ const List = () => {
         const isValidPhone = validatePhone(phone.value)
         const isValidDate = validateDate(bday.value)
         if (!isValidPhone || !isValidDate) {
-            setError(isValidPhone ? "Wrong date format" : "Wrong phone format")
+            setError(isValidPhone ? "Wrong date format!" : "Wrong phone format!")
             setTimeout(() => {
                 setError(null)
                 e.target.reset()
@@ -152,8 +152,8 @@ const List = () => {
 
     {(filterMode ? filtered : pagination).map(({id, fname, lname, phone, bday}) => {
         return <div key={id} className='person'>
-            <div className='layout'><span>{fname}</span></div>
-            <div className='layout'><span>{lname}</span></div>
+            <div className='layout'><span>{fname[0].toUpperCase() + fname.slice(1).toLowerCase()}</span></div>
+            <div className='layout'><span>{lname[0].toUpperCase() + lname.slice(1).toLowerCase()}</span></div>
             <div className='layout'><span>{phone}</span></div>
             <div className='layout'><span>{bday}</span></div>
             <div className='controls layout'>

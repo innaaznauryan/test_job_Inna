@@ -4,27 +4,30 @@
     inset: 0;
     margin: 20px auto;
     width: min(500px, 80%);
-    height: max(350px, 50%);
+    height: max(350px, 60%);
     background-color: cadetblue;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content:space-around;
     align-items: center;
+    h2 {
+        color: #282c34;
+    }
     input{
         width: min(80%, 400px);
         padding: 10px;
         animation-fill-mode: forwards;
         transition: .5s;
+        translate: 0 30px;
         visibility: hidden;
         opacity: 0;
     }
     .animated {
-        translate: 0 -30px;
+        translate: 0;
         visibility: visible;
         opacity: 1;
     }
-
     .edit {
         margin-inline: 10px;
         padding: 10px;

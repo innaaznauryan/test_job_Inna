@@ -8,7 +8,7 @@ const App = () => {
       <header>
         <h1>Phonebook</h1>
       </header>
-      <List></List>
+      <List />
     </>
   )
 }
