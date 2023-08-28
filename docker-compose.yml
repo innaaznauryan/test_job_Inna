@@ -14,6 +14,13 @@ services:
       - MONGO_COLLECTION_NAME=$MONGO_COLLECTION_NAME
     ports:
       - 8180:8080
+  client:
+    build:
+      context: client
+      dockerfile: Dockerfile
+    image: test_job_client:0.0
+    ports:
+      - 5173:5173
 
   mongodb:
     image: mongodb/mongodb-community-server:6.0-ubi8
